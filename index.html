@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson Plan Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mx-auto p-10 rounded-md flex mt-8 items-start justify-center h-auto bg-white shadow">
+    <div class="p-4 sm:w-96 flex-grow border-r-4 h-auto">
+      <h1 class="text-2xl font-semibold mb-5">Lesson Plan Generator</h1>
+      <form id="lessonPlanForm">
+        <div class="mb-5">
+          <label for="topic" class="block text-base font-medium mb-2">Topic:</label>
+          <input type="text" id="topic" class="w-full p-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md" placeholder="Enter Your Topic Here" required>
+        </div>
+        <div class="mb-5">
+          <label for="grade" class="block text-base font-medium mb-2">Grade:</label>
+          <select id="grade" class="w-full p-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md" required>
+            <option value="">Enter Your Grade Here</option>
+            <option value="first">1st Grade</option>
+            <option value="second">2nd Grade</option>
+            <option value="third">3rd Grade</option>
+            <option value="fourth">4th Grade</option>
+            <option value="fifth">5th Grade</option>
+            <option value="sixth">6th Grade</option>
+            <option value="seventh">7th Grade</option>
+            <option value="eight">8th Grade</option>
+            <option value="nine">9th Grade</option>
+            <option value="ten">10th Grade</option>
+            <option value="eleven">11th Grade</option>
+            <option value="twelve">12th Grade</option>
+          </select>
+        </div>
+        <div class="mb-5">
+          <label for="duration" class="block text-base font-medium mb-2">Duration:</label>
+          <input type="" id="duration" class="w-full p-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md" placeholder="Enter Duration Here (in mins)" required>
+        </div>
+        <div class="mb-5">
+          <label for="deliveryType" class="block text-base font-medium mb-2">Delivery Type:</label>
+          <select id="deliveryType" class="w-full p-2 text-gray-700 bg-gray-200 border border-gray-300 rounded-md" required>
+            <option value="">Choose a Delivery Type</option>
+            <option value="lecture">Lecture</option>
+            <option value="activity">Activity</option>
+            <option value="discussion">Discussion</option>
+            <option value="experiment">Experiment</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full p-2 bg-blue-500 text-white font-semibold rounded-md">Generate Lesson Plan</button>
+      </form>
+      <button id="regenerateContent" class="w-full p-2 bg-green-500 text-white font-semibold rounded-md mt-2">Regenerate Content</button>
+      <button id="generateAssessment" class="w-full p-2 bg-orange-500 text-white font-semibold rounded-md mt-2">Generate Assessment</button>
+    </div>
+    <div id="lessonContent" class="p-4 flex-grow hidden">
+      <h2 class="text-xl font-semibold mb-5">Lesson Plan Content</h2>
+      <pre id="apiData" class="mb-5 p-4 bg-gray-100 rounded-md"></pre>
+      <button id="downloadContentPdf" class="w-full p-2 bg-blue-500 text-white font-semibold rounded-md mt-2">Download as PDF</button>
+      <button id="downloadPpt" class="w-full p-2 bg-purple-500 text-white font-semibold rounded-md mt-2">Download as PPT</button>
+    </div>
+    <div id="assessmentSection" class="p-4 flex-grow hidden">
+      <h2 class="text-xl font-semibold mb-5">Assessment Content</h2>
+      <pre id="assessmentData" class="mb-5 p-4 bg-gray-100 rounded-md"></pre>
+      <button id="downloadAssessmentPdf" class="w-full p-2 bg-blue-500 text-white font-semibold rounded-md mt-2">Download as PDF</button>
+    </div>
+    <div class="p-4 flex-grow">
+      <h2 class="text-xl font-semibold mb-5">Search History</h2>
+      <div id="searchHistoryContainer" class="mb-5 p-4 bg-gray-100 rounded-md"></div>
+      <button id="clearHistory" class="w-full p-2 bg-red-500 text-white font-semibold rounded-md hidden">Clear History</button>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.6.0/pptxgen.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
